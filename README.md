@@ -21,3 +21,9 @@
     ```bash
     PYTHONPATH=$(pwd) python src/__main__.py
     ```
+
+## Cómo correr los tests
+
+```bash
+coverage run --rcfile=.coveragerc -m pytest
+```
