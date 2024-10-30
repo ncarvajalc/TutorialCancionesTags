@@ -62,8 +62,10 @@ class Coleccion():
         return session.query(Album).get(album_id).__dict__
 
     def buscar_albumes_por_titulo(self, album_titulo):
+        #albumes = [elem.__dict__ for elem in
+         #          session.query(Album).filter(Album.titulo.ilike('%{0}%'.format(album_titulo))).all()]
         albumes = [elem.__dict__ for elem in
-                   session.query(Album).filter(Album.titulo.ilike('%{0}%'.format(album_titulo))).all()]
+                   session.execute(f"SELECT * FROM Album WHERE titulo LIKE '%{album_titulo}%'").fetchall()]
         return albumes
 
     def agregar_cancion(self, titulo, minutos, segundos, compositor, album_id, interpretes):
