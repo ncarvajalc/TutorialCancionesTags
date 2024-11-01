@@ -5,14 +5,10 @@ from sqlalchemy.orm import sessionmaker
 engine = create_engine("sqlite:///aplicacion.sqlite")
 
 
-def check_value(value):
-    if value == None:
-        print("Engine is None")
-    else:
-        print("Engine is not None")
+def append_to_correct_urls(value, list_of_urls=[]):
+    list_of_urls.append(value)
+    return list_of_urls
 
-
-check_value(engine)
 
 Session = sessionmaker(bind=engine)
 
