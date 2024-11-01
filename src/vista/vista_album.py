@@ -22,6 +22,7 @@ class Ventana_Album(QWidget):
         self.height = 650
         #Inicializamos la ventana principal
         self.inicializar_ventana()
+        return self
 
     def inicializar_ventana(self):
         '''
