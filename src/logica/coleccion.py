@@ -41,7 +41,7 @@ class Coleccion():
             session.delete(album)
             session.commit()
             return True
-        except:
+        except Exception:
             return False
 
     def dar_albumes(self):
@@ -137,7 +137,7 @@ class Coleccion():
                 return True
             else:
                 return False
-        except:
+        except Exception:
             return False
 
     def dar_canciones(self):
@@ -209,7 +209,7 @@ class Coleccion():
             session.delete(interprete)
             session.commit()
             return True
-        except:
+        except Exception:
             return False
 
     def dar_interpretes(self):
