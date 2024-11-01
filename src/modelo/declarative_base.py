@@ -3,9 +3,16 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 engine = create_engine("sqlite:///aplicacion.sqlite")
-engine_copy = engine
 
-print(engine=engine_copy)
+
+def check_value(value):
+    if value == None:
+        print("Engine is None")
+    else:
+        print("Engine is not None")
+
+
+check_value(engine)
 
 Session = sessionmaker(bind=engine)
 
