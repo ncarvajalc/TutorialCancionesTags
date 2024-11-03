@@ -3,6 +3,8 @@ from PyQt5.QtWidgets import QMessageBox, QScrollArea, QPlainTextEdit, QComboBox,
 from PyQt5.QtGui import QFont, QPixmap
 from PyQt5 import QtCore
 
+ERROR_WHILE_SAVING = "Error al guardar canción"
+
 class VentanaCancion(QWidget):
     '''
     Ventana que permite ver una canción
@@ -185,7 +187,7 @@ class VentanaCancion(QWidget):
         Función para guardar los cambios en una canción
         '''
         if len(self.interpretes) == 0:
-            self.mostrar_error("Error al guardar canción", "La canción debe tener al menos un intérprete")
+            self.mostrar_error(ERROR_WHILE_SAVING, "La canción debe tener al menos un intérprete")
         else:
             if self.cancion_actual is None:
                 self.crear_nueva_cancion()
@@ -233,9 +235,9 @@ class VentanaCancion(QWidget):
         self.cancion_actual["compositor"] = self.texto_compositor.text()
 
         if self.cancion_actual["titulo"] == "" or self.cancion_actual["minutos"] == "" or self.cancion_actual["segundos"] == "":
-            self.mostrar_error("Error al guardar canción", "Ningún campo debe estar vacio")
+            self.mostrar_error(ERROR_WHILE_SAVING, "Ningún campo debe estar vacio")
         elif int(self.cancion_actual["minutos"]) == 0 and int(self.cancion_actual["segundos"]) < 10:
-            self.mostrar_error("Error al guardar canción", "La duración de la canción debe ser mínimo de 10 sg")
+            self.mostrar_error(ERROR_WHILE_SAVING, "La duración de la canción debe ser mínimo de 10 sg")
         else:
             self.interfaz.guardar_cancion(self.cancion_actual, self.interpretes)
 
