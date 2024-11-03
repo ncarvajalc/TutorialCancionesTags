@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QApplication, QMessageBox
 from src.vista.vista_album import Ventana_Album
 from src.vista.vista_busqueda import Ventana_Inicial
-from src.vista.vista_cancion import Ventana_Cancion
+from src.vista.vista_cancion import VentanaCancion
 from src.vista.vista_lista_album import Ventana_Lista_Album
 from src.vista.vista_lista_cancion import Ventana_Lista_Canciones
 
@@ -25,7 +25,7 @@ class App(QApplication):
         self.ventana_lista_album = Ventana_Lista_Album(self)
         self.ventana_album = Ventana_Album(self)
         self.ventana_lista_canciones = Ventana_Lista_Canciones(self)
-        self.ventana_cancion = Ventana_Cancion(self)
+        self.ventana_cancion = VentanaCancion(self)
 
         # Se comienza en la lista de albums
         self.mostrar_ventana_lista_albums()
