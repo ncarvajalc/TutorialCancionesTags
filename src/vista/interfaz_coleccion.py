@@ -6,6 +6,8 @@ from src.vista.vista_lista_album import Ventana_Lista_Album
 from src.vista.vista_lista_cancion import Ventana_Lista_Canciones
 
 
+ERROR_SEARCHING_ALBUM = "Error al buscar álbum"
+
 class App(QApplication):
     '''
     Clase principal de la interfaz
@@ -95,7 +97,7 @@ class App(QApplication):
         '''
         Método para editar una canción
         '''
-        res = self.logica.editar_cancion(nueva_cancion["id"], nueva_cancion["titulo"], nueva_cancion["minutos"],
+        self.logica.editar_cancion(nueva_cancion["id"], nueva_cancion["titulo"], nueva_cancion["minutos"],
                                          nueva_cancion["segundos"], nueva_cancion["compositor"], interpretes)
 
     def eliminar_album(self, id_album):
@@ -190,7 +192,7 @@ class App(QApplication):
         if len(albumes) == 0:
             mensaje_error = QMessageBox()
             mensaje_error.setIcon(QMessageBox.Critical)
-            mensaje_error.setWindowTitle("Error al buscar álbum")
+            mensaje_error.setWindowTitle(ERROR_SEARCHING_ALBUM)
             mensaje_error.setText("No hay álbumes con el título " + nombre_album)
             mensaje_error.setStandardButtons(QMessageBox.Ok)
             mensaje_error.exec_()
@@ -204,7 +206,7 @@ class App(QApplication):
         if len(canciones) == 0:
             mensaje_error = QMessageBox()
             mensaje_error.setIcon(QMessageBox.Critical)
-            mensaje_error.setWindowTitle("Error al buscar álbum")
+            mensaje_error.setWindowTitle(ERROR_SEARCHING_ALBUM)
             mensaje_error.setText("No hay canciones con el título " + nombre_cancion)
             mensaje_error.setStandardButtons(QMessageBox.Ok)
             mensaje_error.exec_()
@@ -218,7 +220,7 @@ class App(QApplication):
         if len(interpretes) == 0:
             mensaje_error = QMessageBox()
             mensaje_error.setIcon(QMessageBox.Critical)
-            mensaje_error.setWindowTitle("Error al buscar álbum")
+            mensaje_error.setWindowTitle(ERROR_SEARCHING_ALBUM)
             mensaje_error.setText("No hay canciones con el interprete " + nombre_interprete)
             mensaje_error.setStandardButtons(QMessageBox.Ok)
             mensaje_error.exec_()
