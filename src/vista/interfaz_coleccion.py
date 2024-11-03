@@ -97,7 +97,7 @@ class App(QApplication):
         '''
         Método para editar una canción
         '''
-        res = self.logica.editar_cancion(nueva_cancion["id"], nueva_cancion["titulo"], nueva_cancion["minutos"],
+        self.logica.editar_cancion(nueva_cancion["id"], nueva_cancion["titulo"], nueva_cancion["minutos"],
                                          nueva_cancion["segundos"], nueva_cancion["compositor"], interpretes)
 
     def eliminar_album(self, id_album):
